@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workspaceFilter version="1.0">
+    <filter root="/apps/prodigious-cqkb">
+        <exclude pattern="/apps/prodigious-cqkb/install.*"/>
+        <exclude pattern="/apps/prodigious-cqkb/runmodes.*"/>
+    </filter>
+    <filter root="/etc/clientlibs/prodigious-cqkb"/>
+	<filter root="/etc/designs/prodigious-cqkb">
+        <exclude pattern="/etc/designs/prodigious-cqkb/jcr:content.*"/>
+    </filter>
+</workspaceFilter>
