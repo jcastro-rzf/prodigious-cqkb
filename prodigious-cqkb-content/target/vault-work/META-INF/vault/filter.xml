@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workspaceFilter version="1.0">
+    <filter root="/content/prodigious-cqkb"/>
+    <filter root="/content/dam/prodigious-cqkb">
+        <!-- exclude pattern=".*/renditions.*"/ -->
+    </filter>
+    <filter root="/etc/designs/prodigious-cqkb/jcr:content">
+        <include pattern="/etc/designs/prodigious-cqkb/jcr:content(/.*)+"/>
+    </filter>
+</workspaceFilter>
