@@ -6,7 +6,5 @@
         <exclude pattern="/apps/prodigious-cqkb/runmodes.*"/>
     </filter>
     <filter root="/etc/clientlibs/prodigious-cqkb"/>
-	<filter root="/etc/designs/prodigious-cqkb">
-        <exclude pattern="/etc/designs/prodigious-cqkb/jcr:content.*"/>
-    </filter>
+	<filter root="/etc/designs/prodigious-cqkb"/>
 </workspaceFilter>

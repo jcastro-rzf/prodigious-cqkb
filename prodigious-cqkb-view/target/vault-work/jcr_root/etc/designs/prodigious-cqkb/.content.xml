@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Page">
-    <jcr:content/>
-    <favicon.ico/>
+    <jcr:content
+        cq:doctype="html_5"
+        cq:lastModified="{Date}2013-10-02T09:35:10.445-06:00"
+        cq:lastModifiedBy="admin"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Prodigious CQ Knowledge Base"
+        sling:resourceType="wcm/core/components/designer"/>
+    <clientlibs/>
     <static.css/>
 </jcr:root>
