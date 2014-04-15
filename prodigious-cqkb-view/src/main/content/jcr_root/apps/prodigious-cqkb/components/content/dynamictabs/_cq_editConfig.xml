@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    cq:actions="[edit,-,delete]"
+    cq:dialogMode="floating"
+    cq:layout="rollover"
+    jcr:primaryType="cq:EditConfig">
+    <cq:formParameters
+        jcr:primaryType="nt:unstructured"
+        dummy-param1="/content/cq-widgets"
+        dummy-param2="This is my new parameter!"
+        dummy-param3="Add as many parameters as you want."/>
+</jcr:root>

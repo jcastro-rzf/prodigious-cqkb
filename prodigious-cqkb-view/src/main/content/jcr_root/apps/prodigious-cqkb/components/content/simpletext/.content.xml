@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    cq:cellName="new-css-class-added-to-class-attr"
+    cq:templatePath="/content/cq-widgets/content-template"
+    jcr:description="A simple text component created to depict the use of the cq:emptyText property and other properties."
+    jcr:primaryType="cq:Component"
+    jcr:title="Simple Text"
+    sling:resourceSuperType="foundation/components/parbase"
+    allowedChildren="[]"
+    allowedParents="[*/parsys]"
+    componentGroup="Prodigious CQ Widgets"
+    dialogPath="/apps/prodigious-cqwidgets/components/content/simpletext/dialog"/>

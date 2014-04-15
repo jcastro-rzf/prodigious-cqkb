@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    cq:emptyText="Double-click to edit the Simple Text component"
+    cq:inherit="{Boolean}false"
+    jcr:primaryType="cq:EditConfig">
+    <cq:inplaceEditing
+        jcr:primaryType="cq:InplaceEditingConfig"
+        active="{Boolean}true"
+        configPath="../../dialog/items/items/tab1/items/simpletext"
+        editorType="text"/>
+    <cq:listeners
+        jcr:primaryType="cq:EditListenersConfig"
+        aftercopy="REFRESH_PAGE"
+        afterdelete="REFRESH_SELF"
+        afteredit="function(path, definition) { alert('The component was modified.'); }"
+        afterinsert="REFRESH_INSERTED"
+        aftermove="REFRESH_SELFMOVED"/>
+</jcr:root>

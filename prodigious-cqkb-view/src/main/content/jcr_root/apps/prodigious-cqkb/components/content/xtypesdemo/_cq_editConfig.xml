@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    cq:actions="[edit,delete,-,insert,copymove]"
+    jcr:primaryType="cq:EditConfig">
+    <cq:dropTargets jcr:primaryType="nt:unstructured">
+        <tabimage
+            jcr:primaryType="cq:DropTargetConfig"
+            accept="[image/.*]"
+            groups="[media]"
+            propertyName="./tabimage/fileReference"/>
+    </cq:dropTargets>
+    <cq:actionConfigs jcr:primaryType="nt:unstructured">
+        <separator0
+            jcr:primaryType="nt:unstructured"
+            xtype="tbseparator"/>
+        <callyourcode
+            jcr:primaryType="nt:unstructured"
+            handler="function() {alert('Add the JavaScript code to do anything!');}"
+            text="Call JavaScript code"/>
+    </cq:actionConfigs>
+</jcr:root>

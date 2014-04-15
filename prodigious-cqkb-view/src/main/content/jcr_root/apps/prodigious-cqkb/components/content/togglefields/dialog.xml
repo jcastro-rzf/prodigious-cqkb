@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Toggle Fields"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <panel
+                jcr:primaryType="cq:Panel"
+                title="Toggle Fields">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <box
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Expert Mode"
+                        name="./advanced"
+                        type="checkbox"
+                        xtype="selection">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            loadcontent="function(field,rec,path){Prodigious.CQWidgets.x2.toggleFieldSet(field);}"
+                            selectionchanged="function(field,value){Prodigious.CQWidgets.x2.toggleFieldSet(field);}"/>
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <v1
+                                jcr:primaryType="nt:unstructured"
+                                text=""
+                                value="yes"/>
+                        </options>
+                    </box>
+                    <expertmode
+                        jcr:primaryType="cq:Widget"
+                        collapsed="{Boolean}false"
+                        collapsible="{Boolean}false"
+                        hidden="{Boolean}true"
+                        title="Advanced options"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <text1
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Text 1"
+                                name="./text1"
+                                xtype="textfield"/>
+                            <text2
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Text 2"
+                                name="./text2"
+                                xtype="textfield"/>
+                        </items>
+                    </expertmode>
+                </items>
+            </panel>
+        </items>
+    </items>
+</jcr:root>

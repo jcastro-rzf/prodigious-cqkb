@@ -1,0 +1,19 @@
+# ======================
+# === Custom Plugins ===
+# ======================
+
+#base=js
+
+init.js
+dynamic_tabs.js
+toggle_fields.js
+toggle_tabs.js
+CustomBulkEditor.js
+CustomParagraphFormatPlugin.js
+CustomFontStylesPlugin.js
+TbCustomFontStyleSelector.js
+CustomStylesPlugin.js
+ImageDimensionChecker.js
+CustomRichText.js
+CustomWidget.js
+NewMultiField.js

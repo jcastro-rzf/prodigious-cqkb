@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="Extended xtypes"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab1
+                jcr:primaryType="cq:Panel"
+                title="Extended Widgets">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <extendedrichtext
+                        jcr:primaryType="cq:Widget"
+                        boxMaxHeight="{Decimal}300"
+                        boxMaxWidth="{Decimal}700"
+                        externalStyleSheets="[/etc/designs/prodigious-cq-widgets/static.css]"
+                        fieldDescription="&lt;b>Modifications:&lt;/b>&lt;br>&lt;br>&#xa;- This Rich Text is actually a custom widget based off of the built-in Rich Text. This one takes the value and removes the &amp;lt;p&amp;gt; tags automatically added at the end, which is completely unnecessary.&lt;br>&#xa;- For the Formats dropdown, it's not mandatory to have the paragraph tag anymore.&lt;br>&#xa;- A new Font Style dropdown was created, based off of the Styles plugin, along with a personalized label next to it.&lt;br>&#xa;- The Styles dropdown was overlayed in order to allow both the Styles and Font Styles dropdowns to add the SPAN tags around the same text, and to mark the active CSS class in the menus (which was not working using the default implementation)."
+                        fieldLabel="Extended Rich Text"
+                        name="./extendedrichtext"
+                        removeSingleParagraphContainer="{Boolean}true"
+                        xtype="customrichtext">
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <customparaformat
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <formats jcr:primaryType="cq:WidgetCollection">
+                                    <heading1
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 1"
+                                        tag="h1"/>
+                                    <heading2
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 2"
+                                        tag="h2"/>
+                                    <heading3
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 3"
+                                        tag="h3"/>
+                                    <heading4
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 4"
+                                        tag="h4"/>
+                                    <heading5
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 5"
+                                        tag="h5"/>
+                                    <heading6
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 6"
+                                        tag="h6"/>
+                                </formats>
+                            </customparaformat>
+                            <customstyles
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <styles jcr:primaryType="cq:WidgetCollection">
+                                    <available
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="available"
+                                        text="Available Item"/>
+                                    <unavailable
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="unavailable"
+                                        text="Unavailable Item"/>
+                                </styles>
+                            </customstyles>
+                            <customfontstyles
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <styles jcr:primaryType="cq:WidgetCollection">
+                                    <heading5
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="header5a"
+                                        text="Heading 5"/>
+                                    <heading6
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="header6a"
+                                        text="Heading 6"/>
+                                    <heading7
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="header7a"
+                                        text="Heading 7"/>
+                                    <heading8
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="header8a"
+                                        text="Heading 8"/>
+                                    <heading9
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="header9a"
+                                        text="Heading 9"/>
+                                    <heading10
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="header10a"
+                                        text="Heading 10"/>
+                                    <legaltext
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="q4-legal"
+                                        text="Legal Text"/>
+                                </styles>
+                            </customfontstyles>
+                            <misctools
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                        </rtePlugins>
+                    </extendedrichtext>
+                    <restrictedimage
+                        jcr:primaryType="cq:Widget"
+                        allowUpload="{Boolean}false"
+                        border="{Boolean}true"
+                        cropParameter="./restrictedimage/imageCrop"
+                        ddGroups="[media]"
+                        fieldDescription="&lt;b>Modifications:&lt;/b>&lt;br>&lt;br>&#xa;- This widget has a restriction on the image dimensions: Only 540x540 images are allowed. This validation is done via widget listener and JavaScript code that checks the selected image's width and height."
+                        fieldLabel="Restricted-size Image"
+                        fieldSubLabel="Small Sub-label"
+                        fileNameParameter="./restrictedimage/fileName"
+                        fileReferenceParameter="./restrictedimage/fileReference"
+                        height="{Long}200"
+                        mapParameter="./restrictedimage/imageMap"
+                        name="./restrictedimage/file"
+                        rotateParameter="./restrictedimage/imageRotate"
+                        width="{Long}200"
+                        xtype="html5smartimage">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            loadimage="function(imageComponent) { validImageDimension(imageComponent,[ 540 ],[ 540]) }"/>
+                    </restrictedimage>
+                    <custommultifield
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="The MultiField is an editable list of form fields for editing multi-value properties."
+                        fieldLabel="Custom Multi Field"
+                        name="./custommultifield"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            xtype="newmultifield"/>
+                    </custommultifield>
+                </items>
+            </tab1>
+        </items>
+    </items>
+</jcr:root>

@@ -1,0 +1,1634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    title="xtypes Demo"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        activeTab="{Long}0"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <demo1
+                jcr:primaryType="cq:Panel"
+                tabTip="This is just a tool tip in the Demo 1 tab."
+                title="Demo 1">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <pathfield
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        blankText="This Path Field is required."
+                        boxMaxWidth="{Decimal}200"
+                        cls=""
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        editable="{Boolean}true"
+                        emptyClass="x-form-empty-field"
+                        emptyText="Please select a path."
+                        fieldClass=""
+                        fieldDescription="The PathField is an input field designed for paths with path completion and a button to open a CQ.BrowseDialog for browsing the server repository. It can also browse page paragraphs for advanced link generation."
+                        fieldLabel="Path Field"
+                        fieldSubLabel="Small sub-label"
+                        focusClass="x-form-focus"
+                        forceSelection="{Boolean}false"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        hideTrigger="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        inputType="text&#xa;"
+                        invalidClass="x-form-invalid"
+                        labelSeparator=":"
+                        labelStyle=""
+                        linkPattern="\{0}.selector.html"
+                        maxLength="{Decimal}10"
+                        maxLengthText="The selected path is way too long, sorry!"
+                        minLength="{Decimal}3"
+                        minLengthText="The selected path is way too short, sorry!"
+                        msgTarget="qtip"
+                        name="./pathfield"
+                        parBrowse="{Boolean}true"
+                        parLinkPattern="\{0}.selector.html#{1}"
+                        predicate="nosystem"
+                        preventMark="{Boolean}false"
+                        readOnly="{Boolean}false"
+                        regex="/[0-9]/"
+                        regexText="That path requires at least 1 number in it."
+                        rootPath="/"
+                        rootTitle="Please select a node..."
+                        selectOnFocus="{Boolean}false"
+                        showTitlesInTree="{Boolean}false"
+                        xtype="pathfield"/>
+                    <clearcombo
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        boxMaxWidth="{Decimal}300"
+                        cls=""
+                        disabledClass="x-item-disabled"
+                        displayField="label"
+                        fieldClass="x-form-field"
+                        fieldDescription="The ClearableComboBox is a non-editable combo box with a trigger to clear its value.&lt;br>The array property &quot;store&quot; displays values too. But, the value saved is the same as the one displayed in the dropdown."
+                        fieldLabel="Clearable Combo"
+                        fieldSubLabel="Small sub-label"
+                        focusClass="x-form-focus"
+                        hiddenName="./clearcombo"
+                        labelStyle=""
+                        name="./clearcombo"
+                        storeId="myProdigiousStore"
+                        title="Please select..."
+                        triggerAction="all"
+                        valueField="wid"
+                        xtype="clearcombo">
+                        <store
+                            jcr:primaryType="nt:unstructured"
+                            root="workflows"
+                            totalProperty="results"
+                            xtype="jsonstore">
+                            <api jcr:primaryType="nt:unstructured">
+                                <read
+                                    jcr:primaryType="nt:unstructured"
+                                    method="GET"
+                                    url="/libs/cq/workflow/content/console/workflows.json"/>
+                            </api>
+                            <fields jcr:primaryType="cq:WidgetCollection">
+                                <wid
+                                    jcr:primaryType="nt:unstructured"
+                                    name="wid"/>
+                                <label
+                                    jcr:primaryType="nt:unstructured"
+                                    name="label"/>
+                            </fields>
+                            <sortInfo
+                                jcr:primaryType="nt:unstructured"
+                                direction="ASC"
+                                field="label"/>
+                        </store>
+                    </clearcombo>
+                    <colorfield
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        blankText="Please select a color now!"
+                        boxMaxWidth="{Decimal}400"
+                        cls=""
+                        colors="[000000,993300,333300,12CC00]"
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        editable="{Boolean}true"
+                        emptyClass="x-form-empty-field"
+                        emptyText="Select a color..."
+                        fieldClass="x-form-field"
+                        fieldDescription="The ColorField lets the user enter a color hex value either directly or using a CQ.Ext.menu.ColorMenu."
+                        fieldLabel="Color Field"
+                        fieldSubLabel="Small sub-label"
+                        focusClass="x-form-focus"
+                        invalidClass="x-form-invalid"
+                        labelSeparator="#"
+                        labelStyle=""
+                        name="./colorfield"
+                        readOnly="{Boolean}false"
+                        selectOnFocus="{Boolean}true"
+                        showHexValue="{Boolean}true"
+                        style="font-weight: bold;"
+                        xtype="colorfield"/>
+                    <datefield
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        blankText="The date is missing!"
+                        boxMaxWidth="{Decimal}500"
+                        cls=""
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        disabledDates="[11/../13,10/30/13]"
+                        disabledDatesText="Out-of-office days"
+                        disabledDays="[0,6]"
+                        disabledDaysText="Our weekends are off, sorry!"
+                        editable="{Boolean}true"
+                        emptyClass="x-form-empty-field"
+                        emptyText="Select a date..."
+                        fieldClass="x-form-field"
+                        fieldDescription="Provides a date input field with a CQ.Ext.DatePicker dropdown and automatic date validation"
+                        fieldLabel="Date Field"
+                        fieldSubLabel="Small sub-label"
+                        focusClass="x-form-focus"
+                        format="m/d/y"
+                        hideLabel="{Boolean}false"
+                        invalidClass="x-form-invalid"
+                        labelStyle=""
+                        name="./datefield"
+                        xtype="datefield"/>
+                    <datetime
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        cls=""
+                        dateFormat="m-d-Y"
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        emptyClass="x-form-empty-field"
+                        fieldClass="x-form-field"
+                        fieldDescription="The DateTime lets the user enter a date and a time by combining CQ.Ext.form.DateField and CQ.Ext.form.TimeField."
+                        fieldLabel="Date Time"
+                        fieldSubLabel="Sub-label"
+                        focusClass="x-form-focus"
+                        hidden="{Boolean}false"
+                        hiddenFormat="Y-m-d\\TH:i:sP"
+                        hideLabel="{Boolean}false"
+                        hideTime="{Boolean}false"
+                        invalidClass="x-form-invalid"
+                        labelStyle=""
+                        name="./datetime"
+                        timePosition="right"
+                        xtype="datetime"/>
+                    <dialogfieldset
+                        jcr:primaryType="cq:Widget"
+                        border="{Boolean}true"
+                        checkboxToggle="{Boolean}false"
+                        cls=""
+                        collapsed="{Boolean}false"
+                        collapsible="{Boolean}true"
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        fieldClass="x-form-field"
+                        fieldDescription="The DialogFieldSet is a FieldSet for use in Dialogs."
+                        fieldLabel="Dialog Field Set"
+                        fieldSubLabel="Small sub-label"
+                        focusClass="x-form-focus"
+                        frame="{Boolean}false"
+                        headerAsText="{Boolean}true"
+                        hidden="{Boolean}false"
+                        hideBorders="{Boolean}false"
+                        hideCollapseTool="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        labelSeparator="=>"
+                        labelStyle="text-transform:uppercase;"
+                        title="Dialog Field Set"
+                        titleCollapse="{Boolean}true"
+                        xtype="dialogfieldset">
+                        <items jcr:primaryType="cq:WidgetCollection">
+                            <textfield1
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Text Field 1"
+                                xtype="textfield"/>
+                            <textfield2
+                                jcr:primaryType="cq:Widget"
+                                fieldLabel="Text Field 2"
+                                xtype="textfield"/>
+                        </items>
+                    </dialogfieldset>
+                    <fileuploaddialogbutton
+                        jcr:primaryType="cq:Widget"
+                        autoWidth="{Boolean}false"
+                        boxMaxWidth="{Decimal}200"
+                        cancelText="Close this"
+                        cls=""
+                        dialogTitle="Select a file please..."
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        fieldClass="x-form-field"
+                        fieldDescription="The FileUploadDialogButton creates a button that opens a new dialog for uploading a file via the FileUploadField. Can be used inside edit dialogs where the upload must happen in a separate form in the new dialog."
+                        fieldLabel="File Upload Dialog Button"
+                        fieldSubLabel="Small sub-label"
+                        fileLabel="Here it is:"
+                        fileNameParameter="myfile"
+                        focusClass="x-form-focus"
+                        formUrl="/bin/youruploadservlet (create it yourself)"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        icon="/libs/foundation/components/image/icon.png"
+                        iconAlign="left"
+                        invalidClass="x-form-invalid"
+                        labelSeparator="}-->"
+                        labelStyle=""
+                        name="./fileuploaddialogbutton"
+                        okText="Let's do it!"
+                        scale="small"
+                        text="Click here to upload a file"
+                        tooltip="This is the tooltip"
+                        xtype="fileuploaddialogbutton"/>
+                    <htmleditor
+                        jcr:primaryType="cq:Widget"
+                        boxMaxHeight="{Decimal}200"
+                        boxMaxWidth="{Decimal}600"
+                        cls=""
+                        createLinkText="Create link text."
+                        disabledClass="x-item-disabled"
+                        enableAlignments="{Boolean}true"
+                        enableColors="{Boolean}true"
+                        enableFont="{Boolean}true"
+                        enableFontSize="{Boolean}true"
+                        enableFormat="{Boolean}true"
+                        enableLinks="{Boolean}true"
+                        enableLists="{Boolean}true"
+                        enableSourceEdit="{Boolean}true"
+                        fieldClass="x-form-field"
+                        fieldDescription="Provides a lightweight HTML Editor component. Some toolbar features are not supported by Safari and will be automatically hidden when needed. These are noted in the config options where appropriate. "
+                        fieldLabel="HTML Editor"
+                        fieldSubLabel="Small sub-label"
+                        focusClass="x-form-focus"
+                        fontFamilies="[Arial,Courier New,Tahoma,Times New Roman,Verdana,Comic Sans MS,Impact,Lucida Console]"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        labelSeparator=":"
+                        labelStyle=""
+                        name="./htmleditor"
+                        xtype="htmleditor"/>
+                    <inlinetextfield
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        blankText="Click here to enter something!"
+                        cls=""
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        emptyClass="x-form-empty-field"
+                        emptyText="Click here to enter text"
+                        fieldClass="x-form-field"
+                        fieldDescription="The InlineField is a text field which is displayed as a label when not in focus."
+                        fieldLabel="Inline Text Field"
+                        fieldSubLabel="Small sub-label"
+                        focusClass="x-form-focus"
+                        grow="{Boolean}true"
+                        growMax="{Decimal}200"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        invalidClass="x-form-invalid"
+                        labelSeparator=":"
+                        labelStyle=""
+                        maxLength="{Decimal}20"
+                        maxLengthText="Stop writing so much!!"
+                        minLength="{Decimal}5"
+                        minLengthText="Go ahead, write more"
+                        msgTarget="title"
+                        name="./inlinetextfield"
+                        readOnly="{Boolean}false"
+                        selectOnFocus="{Boolean}true"
+                        xtype="inlinetextfield"/>
+                    <label
+                        jcr:primaryType="cq:Widget"
+                        cls=""
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        fieldClass="x-form-field"
+                        fieldDescription="Basic Label field."
+                        fieldLabel="Label"
+                        fieldSubLabel="Small sub-label"
+                        focusClass="x-form-focus"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}true"
+                        labelSeparator="@"
+                        text="This is the purpose of using the &quot;label&quot; widget. We can hide the label to add it as a description. Unfortunately, you cannot add &lt;b>HTML tags&lt;/b>"
+                        xtype="label"/>
+                    <multifield
+                        jcr:primaryType="cq:Widget"
+                        addItemLabel="Yes! Add another field"
+                        border="{Boolean}true"
+                        boxMaxWidth="{Decimal}500"
+                        cls=""
+                        collapsed="{Boolean}false"
+                        collapsible="{Boolean}true"
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        dragDropMode="true"
+                        fieldClass="x-form-field"
+                        fieldDescription="The MultiField is an editable list of form fields for editing multi-value properties."
+                        fieldLabel="Multi Field"
+                        fieldSubLabel="Small sub-label"
+                        focusClass="x-form-focus"
+                        frame="{Boolean}false"
+                        header="{Boolean}true"
+                        headerAsText="{Boolean}true"
+                        hidden="{Boolean}false"
+                        hideCollapseTool="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        labelStyle=""
+                        name="./multifield"
+                        orderable="{Boolean}true"
+                        padding="{Decimal}0"
+                        readOnly="{Boolean}false"
+                        title="Add elements here"
+                        titleCollapse="{Boolean}true"
+                        xtype="multifield">
+                        <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            allowBlank="{Boolean}false"
+                            blankText="Whoa whoa!"
+                            xtype="pathfield"/>
+                    </multifield>
+                    <numberfield
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        allowDecimals="{Boolean}true"
+                        allowNegative="{Boolean}true"
+                        baseChars="0123456"
+                        boxMaxWidth="{Decimal}300"
+                        cls=""
+                        decimalPrecision="{Decimal}3"
+                        decimalSeparator="."
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        emptyClass="x-form-empty-field"
+                        emptyText="Add numbers only"
+                        fieldClass="x-form-field"
+                        fieldDescription="Numeric text field that provides automatic keystroke filtering and numeric validation."
+                        fieldLabel="Number Field"
+                        fieldSubLabel="Small sub-label"
+                        focusClass="x-form-focus"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        invalidClass="x-form-invalid"
+                        labelSeparator="++"
+                        labelStyle=""
+                        maxLength="{Decimal}6"
+                        maxLengthText="No millions allowed!"
+                        maxText="Amounts higher than 950.000 are not allowed"
+                        maxValue="{Decimal}650000"
+                        minText="Values lower than -10 are not allowed"
+                        minValue="{Decimal}-10"
+                        msgTarget="side"
+                        name="./numberfield"
+                        readOnly="{Boolean}false"
+                        selectOnFocus="{Boolean}false"
+                        xtype="numberfield"/>
+                    <ownerdraw
+                        jcr:primaryType="cq:Widget"
+                        bodyBorder="{Boolean}true"
+                        border="{Boolean}true"
+                        boxMaxWidth="{Decimal}700"
+                        cls=""
+                        collapsed="{Boolean}false"
+                        collapseFirst="{Boolean}false"
+                        collapsible="{Boolean}true"
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        fieldClass="x-form-field"
+                        fieldDescription="The OwnerDraw can contain custom HTML code (either entered directly or retrieved from a URL)."
+                        fieldLabel="Owner Draw"
+                        fieldSubLabel="Small sub-label"
+                        focusClass="x-form-focus"
+                        frame="{Boolean}false"
+                        header="{Boolean}true"
+                        headerAsText="{Boolean}true"
+                        hidden="{Boolean}false"
+                        hideBorders="{Boolean}false"
+                        hideCollapseTool="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        html="&lt;div style=&quot;border-style:inset;border-color:#12CC00;&#xa;border-width:medium;margin: 20px;padding:5px;&quot;>&#xa;  &lt;h3>This is a heading in a div element&lt;/h3>&#xa;  &lt;p>This is some text in a div element.&lt;/p>&#xa;  &lt;br>&#xa;  &lt;p>&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;1&quot; border=&quot;1&quot; style=&quot;margin-left: auto;margin-right: auto;&quot;>&#xa;&lt;tbody>&lt;tr>&lt;th>Header 1&lt;/th>&#xa;&lt;th>Header 2&lt;/th>&#xa;&lt;th>Header 3&lt;/th>&#xa;&lt;/tr>&lt;tr>&lt;td style=&quot;border: 1px solid blue;&quot;>&lt;ol>&#xa;&lt;li>First feature.&lt;/li>&#xa;&lt;li>&lt;i>Second feature.&lt;/i>&lt;/li>&#xa;&lt;li>Third feature.&lt;/li>&#xa;&lt;/ol>&#xa;&lt;/td>&#xa;&lt;td style=&quot;border: 1px solid blue;&quot;>&lt;ol>&#xa;&lt;li>First feature.&lt;/li>&#xa;&lt;li>&lt;a  href=&quot;#&quot; style=&quot;text-decoration:underline;color:#FF0000;&quot;>Second feature.&lt;/a>&lt;/li>&#xa;&lt;li>Third feature.&lt;/li>&#xa;&lt;/ol>&#xa;&lt;/td>&#xa;&lt;td style=&quot;border: 1px solid blue;&quot;>&lt;ol>&#xa;&lt;li>First feature.&lt;/li>&#xa;&lt;li>Second feature.&lt;/li>&#xa;&lt;li>&lt;u>&lt;b>&lt;i>Third feature.&lt;/i>&lt;/b>&lt;/u>&lt;/li>&#xa;&lt;/ol>&#xa;&lt;/td>&#xa;&lt;/tr>&lt;/tbody>&lt;/table>&#xa;&lt;/p>&#xa;&lt;/div>"
+                        labelSeparator="@"
+                        labelStyle=""
+                        name="./ownerdraw"
+                        readOnly="{Boolean}false"
+                        title="HTML code is rendered here:"
+                        titleCollapse="{Boolean}true"
+                        url="/content/cq-widgets.html"
+                        xtype="ownerdraw"/>
+                    <paragraphreference
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        blankText="A paragraph must be selected, sorry bro!"
+                        boxMaxWidth="{Decimal}600"
+                        cls=""
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        editable="{Boolean}true"
+                        emptyClass="x-form-empty-field"
+                        emptyText="Please select a path."
+                        fieldClass="x-form-field"
+                        fieldDescription="The paragraph refrence field allows to browse pages and select one of their paragraphs. It consists of a trigger field and a associated paragraph browse dialog."
+                        fieldLabel="Paragraph Reference"
+                        fieldSubLabel="Small sub-label"
+                        focusClass="x-form-focus"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        invalidClass="x-form-invalid"
+                        labelSeparator=":"
+                        labelStyle=""
+                        maxLength="{Decimal}50"
+                        maxLengthText="The selected paragraph is way too long!"
+                        msgTarget="qtip"
+                        name="./paragraphreference"
+                        readOnly="{Boolean}false"
+                        regex="/[0-9]/"
+                        regexText="That path requires at least 1 number in it."
+                        selectOnFocus="{Boolean}false"
+                        xtype="paragraphreference"/>
+                    <password
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        blankText="Type your password now!"
+                        cls=""
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        editable="{Boolean}true"
+                        fieldDescription="The Password is like a CQ.Ext.form.TextField but keeps its value private, allowing users to enter sensitive data."
+                        fieldLabel="Password"
+                        fieldSubLabel="Small sub-label"
+                        focusClass="x-form-focus"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        invalidClass="x-form-invalid"
+                        labelSeparator=":"
+                        labelStyle=""
+                        minLength="{Decimal}3"
+                        minLengthText="Password must be longer, sorry..."
+                        msgTarget="under"
+                        name="./password"
+                        readOnly="{Boolean}false"
+                        regex="/[0-9]/"
+                        regexText="Password requires at least 1 number."
+                        xtype="password"/>
+                    <progress
+                        jcr:primaryType="cq:Widget"
+                        animate="{Boolean}true"
+                        boxMaxWidth="{Decimal}300"
+                        cls=""
+                        fieldDescription="An updateable progress bar component. The progress bar supports two different modes: manual and automatic.&#xa;&lt;br>&#xa;In manual mode, you are responsible for showing, updating (via updateProgress) and clearing the progress bar as needed from your own code. This method is most appropriate when you want to show progress throughout an operation that has predictable points of interest at which you can update the control.&#xa;&lt;br>&#xa;In automatic mode, you simply call wait and let the progress bar run indefinitely, only clearing it once the operation is complete. You can optionally have the progress bar wait for a specific amount of time and then clear itself. Automatic mode is most appropriate for timed operations or asynchronous operations in which you have no need for indicating intermediate progress."
+                        fieldLabel="Progress"
+                        fieldSubLabel="Small sub-label"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        labelSeparator=":"
+                        labelStyle=""
+                        text="Working..."
+                        value="{Double}0.3"
+                        xtype="progress"/>
+                    <richtext
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        boxMaxHeight="{Decimal}300"
+                        boxMaxWidth="{Decimal}700"
+                        cls=""
+                        ddAccept="-"
+                        disabledClass="x-item-disabled"
+                        externalStyleSheets="[/etc/designs/prodigious-cq-widgets/static.css]"
+                        fieldClass="x-form-field"
+                        fieldDescription="The RichText provides a form field for editing styled text information (rich text)."
+                        fieldSubLabel="Small sub-label"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        indentSize="{Long}40"
+                        labelSeparator=":"
+                        labelStyle=""
+                        name="./richtext"
+                        removeSingleParagraphContainer="{Boolean}true"
+                        singleParagraphContainerReplacement="div"
+                        xtype="richtext">
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <edit
+                                jcr:primaryType="nt:unstructured"
+                                defaultPasteMode="wordhtml"
+                                features="*"
+                                stripHtmlTags="{Boolean}false">
+                                <htmlPasteRules
+                                    jcr:primaryType="nt:unstructured"
+                                    allowBlockTags="[h1,h2,h3,p]"
+                                    allowedCssNames="[allowed-css-class-1,allowed-css-class-2,allowed-css-class-3]"
+                                    cssMode="remove"
+                                    fallbackBlockTag="p"
+                                    handlersToRemove="[onabort,onblur,onchange,onclick,ondblclick,onerror,onfocus,onkeydown,onkeypress,onkeyup,onload,onmousedown,onmousemove,onmouseout,onmouseover,onmouseup,onreset,onselect,submit,onunload]"
+                                    linkRemoveRegEx=""
+                                    removeHandlers="{Boolean}true">
+                                    <allowBasics
+                                        jcr:primaryType="nt:unstructured"
+                                        anchor="{Boolean}true"
+                                        bold="{Boolean}true"
+                                        image="{Boolean}true"
+                                        italic="{Boolean}true"/>
+                                    <table
+                                        jcr:primaryType="nt:unstructured"
+                                        allow="{Boolean}false"
+                                        ignoreMode="remove"/>
+                                    <list
+                                        jcr:primaryType="nt:unstructured"
+                                        allow="{Boolean}true"/>
+                                </htmlPasteRules>
+                            </edit>
+                            <findreplace
+                                jcr:primaryType="nt:unstructured"
+                                features="[find]"/>
+                            <format
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <keys
+                                jcr:primaryType="nt:unstructured"
+                                features="*"
+                                tabSize="8"/>
+                            <justify
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <links
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <lists
+                                jcr:primaryType="nt:unstructured"
+                                features="*"
+                                indentSize="{Long}10"/>
+                            <misctools
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                    <chars jcr:primaryType="nt:unstructured">
+                                        <copyright
+                                            jcr:primaryType="nt:unstructured"
+                                            entity="©"/>
+                                        <registered
+                                            jcr:primaryType="nt:unstructured"
+                                            entity="®"/>
+                                        <trademark
+                                            jcr:primaryType="nt:unstructured"
+                                            entity="™"/>
+                                        <onehalf
+                                            jcr:primaryType="nt:unstructured"
+                                            entity="½"/>
+                                        <pencils
+                                            jcr:primaryType="nt:unstructured"
+                                            rangeEnd="{Long}10000"
+                                            rangeStart="{Long}9998"/>
+                                    </chars>
+                                </specialCharsConfig>
+                            </misctools>
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <formats jcr:primaryType="cq:WidgetCollection">
+                                    <paragraph
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Paragraph"
+                                        tag="p"/>
+                                    <heading1
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 1"
+                                        tag="h1"/>
+                                    <heading2
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 2"
+                                        tag="h2"/>
+                                    <heading3
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 3"
+                                        tag="h3"/>
+                                    <heading4
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 4"
+                                        tag="h4"/>
+                                    <heading5
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 5"
+                                        tag="h5"/>
+                                    <heading6
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 6"
+                                        tag="h6"/>
+                                </formats>
+                            </paraformat>
+                            <spellcheck
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <styles
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <styles jcr:primaryType="cq:WidgetCollection">
+                                    <available
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="available"
+                                        text="Available Item"/>
+                                    <unavailable
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="unavailable"
+                                        text="Unavailable Item"/>
+                                </styles>
+                            </styles>
+                            <subsuperscript
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <table
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <tableStyles jcr:primaryType="cq:WidgetCollection">
+                                    <tablestyle
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="table-style"
+                                        text="Table Style 2"/>
+                                </tableStyles>
+                                <cellStyles jcr:primaryType="cq:WidgetCollection">
+                                    <uppercase
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="uppercase-text"
+                                        text="Uppercase"/>
+                                </cellStyles>
+                            </table>
+                            <undo
+                                jcr:primaryType="nt:unstructured"
+                                features="*"
+                                maxUndoSteps="{Long}60"/>
+                        </rtePlugins>
+                        <htmlRules jcr:primaryType="nt:unstructured">
+                            <links
+                                jcr:primaryType="nt:unstructured"
+                                cssExternal="external-link"
+                                cssInternal="internal-link"
+                                defaultProtocol="http://"
+                                protocols="[http://,https://,file://]">
+                                <targetConfig
+                                    jcr:primaryType="nt:unstructured"
+                                    mode="auto"
+                                    targetExternal="_blank"
+                                    targetInternal="_self"/>
+                            </links>
+                        </htmlRules>
+                    </richtext>
+                    <selectioncheck
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        blankText="Oops! You must select an option"
+                        checkboxBoolTypeHint="{Boolean}false"
+                        cls=""
+                        collapsed="{Boolean}false"
+                        collapsedCls="x-panel-collapsed"
+                        collapseFirst="{Boolean}false"
+                        collapsible="{Boolean}true"
+                        defaultValue="1"
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        fieldDescription="The Selection lets the user choose between several options. The options can be part of the configuration or loaded from a JSON repsone. The Selection can either be rendered as dropdown (select), combobox (select plus free text entry), checkboxes or radio buttons."
+                        fieldLabel="Selection Checkbox"
+                        fieldSubLabel="Small Sub-label"
+                        frame="{Boolean}false"
+                        header="{Boolean}true"
+                        headerAsText="{Boolean}true"
+                        hidden="{Boolean}false"
+                        hideCollapseTool="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        invalidClass="x-form-invalid"
+                        labelSeparator=""
+                        labelStyle=""
+                        msgTarget="under"
+                        name="./selection-check"
+                        readOnly="{Boolean}false"
+                        sortDir="DESC"
+                        title="Please select..."
+                        titleCollapse="{Boolean}true"
+                        type="checkbox"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <option1
+                                jcr:primaryType="nt:unstructured"
+                                text="Option 1"
+                                value="1"/>
+                            <option2
+                                jcr:primaryType="nt:unstructured"
+                                text="Option 2"
+                                value="2"/>
+                            <option3
+                                jcr:primaryType="nt:unstructured"
+                                text="Option 3"
+                                value="3"/>
+                        </options>
+                    </selectioncheck>
+                    <selectionradio
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        blankText="Oops! You must select an option"
+                        checkboxBoolTypeHint="{Boolean}false"
+                        cls=""
+                        collapsed="{Boolean}false"
+                        collapsedCls="x-panel-collapsed"
+                        collapseFirst="{Boolean}false"
+                        collapsible="{Boolean}true"
+                        defaultValue="2"
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        fieldDescription="The Selection lets the user choose between several options. The options can be part of the configuration or loaded from a JSON repsone. The Selection can either be rendered as dropdown (select), combobox (select plus free text entry), checkboxes or radio buttons."
+                        fieldLabel="Selection Radio"
+                        fieldSubLabel="Small Sub-label"
+                        frame="{Boolean}false"
+                        header="{Boolean}true"
+                        headerAsText="{Boolean}true"
+                        hidden="{Boolean}false"
+                        hideCollapseTool="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        invalidClass="x-form-invalid"
+                        labelSeparator=""
+                        labelStyle=""
+                        msgTarget="under"
+                        name="./selection-radio"
+                        readOnly="{Boolean}false"
+                        sortDir="ASC"
+                        title="Please select..."
+                        titleCollapse="{Boolean}true"
+                        type="radio"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <option1
+                                jcr:primaryType="nt:unstructured"
+                                text="Option 1"
+                                value="1"/>
+                            <option2
+                                jcr:primaryType="nt:unstructured"
+                                text="Option 2"
+                                value="2"/>
+                            <option3
+                                jcr:primaryType="nt:unstructured"
+                                text="Option 3"
+                                value="3"/>
+                        </options>
+                    </selectionradio>
+                    <selectionselect
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        blankText="Oops! You must select an option"
+                        checkboxBoolTypeHint="{Boolean}false"
+                        cls=""
+                        collapsed="{Boolean}false"
+                        collapsedCls="x-panel-collapsed"
+                        collapseFirst="{Boolean}false"
+                        collapsible="{Boolean}false"
+                        defaultValue="2"
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        fieldDescription="The Selection lets the user choose between several options. The options can be part of the configuration or loaded from a JSON repsone. The Selection can either be rendered as dropdown (select), combobox (select plus free text entry), checkboxes or radio buttons."
+                        fieldLabel="Selection Select"
+                        fieldSubLabel="Small Sub-label"
+                        frame="{Boolean}false"
+                        header="{Boolean}false"
+                        headerAsText="{Boolean}false"
+                        hidden="{Boolean}false"
+                        hideCollapseTool="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        invalidClass="x-form-invalid"
+                        labelSeparator=""
+                        labelStyle=""
+                        msgTarget="under"
+                        name="./selection-select"
+                        readOnly="{Boolean}false"
+                        sortDir="ASC"
+                        title="Please select..."
+                        titleCollapse="{Boolean}false"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <option1
+                                jcr:primaryType="nt:unstructured"
+                                text="&amp;nbsp;"
+                                value="0"/>
+                            <option2
+                                jcr:primaryType="nt:unstructured"
+                                text="Option 1"
+                                value="1"/>
+                            <option3
+                                jcr:primaryType="nt:unstructured"
+                                text="Option 2"
+                                value="2"/>
+                            <option4
+                                jcr:primaryType="nt:unstructured"
+                                text="Option 3"
+                                value="3"/>
+                        </options>
+                    </selectionselect>
+                    <box
+                        jcr:primaryType="cq:Widget"
+                        autoEl="div"
+                        fieldDescription="This is just a spacer widget used to add some distance between widgets."
+                        fieldLabel="Box Spacer"
+                        height="{Decimal}40"
+                        xtype="box"/>
+                    <selectioncombo
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        blankText="Oops! You must select an option"
+                        boxMaxWidth="{Decimal}300"
+                        checkboxBoolTypeHint="{Boolean}false"
+                        cls=""
+                        collapsed="{Boolean}false"
+                        collapsedCls="x-panel-collapsed"
+                        collapseFirst="{Boolean}false"
+                        collapsible="{Boolean}true"
+                        defaultValue="Selection 3"
+                        disabled="{Boolean}false"
+                        disabledClass="x-item-disabled"
+                        fieldDescription="The Selection lets the user choose between several options. The options can be part of the configuration or loaded from a JSON repsone. The Selection can either be rendered as dropdown (select), combobox (select plus free text entry), checkboxes or radio buttons."
+                        fieldLabel="Selection Combobox"
+                        fieldSubLabel="Small Sub-label"
+                        forceSelection="{Boolean}true"
+                        frame="{Boolean}false"
+                        header="{Boolean}true"
+                        headerAsText="{Boolean}true"
+                        hidden="{Boolean}false"
+                        hideCollapseTool="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        invalidClass="x-form-invalid"
+                        labelSeparator=""
+                        labelStyle=""
+                        msgTarget="under"
+                        name="./selection-combo"
+                        readOnly="{Boolean}false"
+                        sortDir="ASC"
+                        title="Please select..."
+                        titleCollapse="{Boolean}true"
+                        type="combobox"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <option1
+                                jcr:primaryType="nt:unstructured"
+                                text="- Unselected -"
+                                value="0"/>
+                            <option2
+                                jcr:primaryType="nt:unstructured"
+                                text="Item 1"
+                                value="1"/>
+                            <option3
+                                jcr:primaryType="nt:unstructured"
+                                text="Option 2"
+                                value="2"/>
+                            <option4
+                                jcr:primaryType="nt:unstructured"
+                                text="Selection 3"
+                                value="3"/>
+                        </options>
+                    </selectioncombo>
+                    <sizefield
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        collapsed="{Boolean}false"
+                        collapseFirst="{Boolean}true"
+                        collapsible="{Boolean}false"
+                        disabled="{Boolean}false"
+                        fieldDescription="The SizeField lets the user enter the width and height (for example for an image)."
+                        fieldLabel="Size Field"
+                        fieldSubLabel="Small Sub-label"
+                        header="{Boolean}false"
+                        headerAsText="{Boolean}false"
+                        heightParameter="./height"
+                        heightPrefix="x"
+                        heightSuffix="px"
+                        hidden="{Boolean}false"
+                        hideCollapseTool="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        labelSeparator=""
+                        labelStyle=""
+                        readOnly="{Boolean}false"
+                        title="Please select..."
+                        titleCollapse="{Boolean}true"
+                        widthParameter="./width"
+                        widthPrefix="Width Preffix"
+                        widthSuffix="px"
+                        xtype="sizefield"/>
+                    <html5smartfile
+                        jcr:primaryType="cq:Widget"
+                        allowFileNameEditing="{Boolean}true"
+                        allowFileReference="{Boolean}false"
+                        allowUpload="{Boolean}true"
+                        collapsed="{Boolean}false"
+                        collapsible="{Boolean}false"
+                        fieldDescription="The SmartFile is an intelligent file uploader.&#xa;&lt;br>&#xa;If the browser supports HTML5, uploads are executed using the HTML5 that provides a convenient way to handle uploads. If the browser does not support such way of upload or if it is disabled by the corresponding config option, a HTML fallback is used instead, which imposes some restrictions compared with the HTML5 version.&#xa;&lt;br>&#xa;Component linking may be used to validate form fields that depend on the content of a SmartFile instance. Just add the name of the dependant SmartFile instance as a linkedComponent property (type: String) to the corresponding field(s). The SmartFile component will then call the CQ.Ext.form.TextField.validate method of the linked form field to trigger the validation. There is also a SmartFile-specific VType available: use &quot;requiredOnLinkedData&quot; for fields that are required only if the linked SmartFile component has a file uploaded or referenced."
+                        fieldLabel="HTML5 Smart File"
+                        fieldSubLabel="Small Sub-label"
+                        header="{Boolean}false"
+                        headerAsText="{Boolean}false"
+                        hidden="{Boolean}false"
+                        hideCollapseTool="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        labelSeparator=""
+                        labelStyle=""
+                        mimeTypes="*.jpg;*.gif;*.png"
+                        mimeTypesDescription="Only JPGs, GIFs and PNGs are allowed."
+                        name="./html5smartfile"
+                        readOnly="{Boolean}false"
+                        removeUploadPanelClsOnProgress="{Boolean}true"
+                        sizeLimit="{Decimal}0"
+                        title="Smart File"
+                        titleCollapse="{Boolean}true"
+                        transferFileName="{Boolean}true"
+                        uploadText="Drop an asset or click to upload"
+                        uploadTextFallback="Upload file"
+                        uploadTextReference="Drop an asset"
+                        uploadTextUpload="Click to upload"
+                        useHTML5="{Boolean}true"
+                        xtype="html5smartfile">
+                        <listeners
+                            jcr:primaryType="nt:unstructured"
+                            loadimage="function(imageComponent){ validImageDimension(imageComponent,[ 540 ],[ 540]) }"/>
+                    </html5smartfile>
+                </items>
+            </demo1>
+            <demo2
+                jcr:primaryType="cq:Panel"
+                tabTip="This is just a tool tip in the Demo 2 tab."
+                title="Demo 2">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <spinner
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        blankText="Give it a spin...!"
+                        cls=""
+                        disabled="{Boolean}false"
+                        editable="{Boolean}true"
+                        emptyText="Enter a number here..."
+                        fieldDescription="The Spinner is a trigger field for numeric, date or time values. The value can be increased and decreased by using the provided up and down triggers, the scroll wheel or keys.&#xa;&lt;br>&#xa;The behavior of the spinning is defined in a CQ.form.Spinner.Strategy. Each Strategy allows two different speeds of spinning. The normal increment is definied as incrementValue of the Strategy and the alternate increment as alternateIncrementValue.&#xa;&lt;br>&#xa;The Spinner supports multiple possibilities to spin:&#xa;&lt;br>&#xa;* Use the trigger buttons&lt;br>&#xa;* Hover the field and use the scroll wheel&lt;br>&#xa;* When using triggers or scroll wheel additionally hold the alternate key (shift) for alternate spinning&lt;br>&#xa;* Focus the field and use the keys &quot;up&quot; and &quot;down&quot;&lt;br>&#xa;* Use the keys &quot;page up&quot; and &quot;page down&quot; for alternate spinning&lt;br>&#xa;* Drag the splitter between the up and down trigger&lt;br>"
+                        fieldLabel="Spinner"
+                        fieldSubLabel="Small Sub-label"
+                        grow="{Boolean}true"
+                        growMax="{Decimal}100"
+                        growMin="{Decimal}50"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        hideTrigger="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        labelSeparator=""
+                        labelStyle=""
+                        maxLength="{Decimal}8"
+                        maxLengthText="The number is too high!"
+                        minLength="{Decimal}0"
+                        minLengthText="The number is too low..."
+                        msgTarget="side"
+                        name="./spinner"
+                        readOnly="{Boolean}false"
+                        regex="/^[0-9]*$/"
+                        regexText="Only positive numbers are allowed, sorry!"
+                        selectOnFocus="{Boolean}false"
+                        xtype="spinner"/>
+                    <spinnernumber
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        blankText="Give it a spin...!"
+                        cls=""
+                        disabled="{Boolean}false"
+                        editable="{Boolean}true"
+                        emptyText="Enter a number here..."
+                        fieldLabel="Spinner Number Strategy"
+                        fieldSubLabel="Small Sub-label"
+                        grow="{Boolean}true"
+                        growMax="{Decimal}100"
+                        growMin="{Decimal}50"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        hideTrigger="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        labelSeparator=""
+                        labelStyle=""
+                        name="./spinnernumber"
+                        readOnly="{Boolean}false"
+                        selectOnFocus="{Boolean}false"
+                        xtype="spinner">
+                        <strategy
+                            jcr:primaryType="nt:unstructured"
+                            allowDecimals="{Boolean}true"
+                            alternateIncrementValue="{Long}3"
+                            decimalPrecision="{Decimal}3"
+                            incrementValue="{Long}4"
+                            xtype="number"/>
+                    </spinnernumber>
+                    <spinnerdate
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        blankText="Give it a spin...!"
+                        cls=""
+                        disabled="{Boolean}false"
+                        editable="{Boolean}true"
+                        fieldLabel="Spinner Date Strategy"
+                        fieldSubLabel="Small Sub-label"
+                        grow="{Boolean}true"
+                        growMax="{Decimal}100"
+                        growMin="{Decimal}50"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        hideTrigger="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        labelSeparator=""
+                        labelStyle=""
+                        name="./spinnerdate"
+                        readOnly="{Boolean}false"
+                        selectOnFocus="{Boolean}false"
+                        xtype="spinner">
+                        <strategy
+                            jcr:primaryType="nt:unstructured"
+                            alternateIncrementConstant="mo"
+                            alternateIncrementValue="{Decimal}3"
+                            dummy-info="Check the /libs/cq/ui/widgets/source/ext/source/util/Date.js class to see the possible values for the alternateIncrementConstant values."
+                            format="Y-m-d"
+                            incrementValue="{Decimal}2"
+                            xtype="date"/>
+                    </spinnerdate>
+                    <spinnertime
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        blankText="Give it a spin...!"
+                        cls=""
+                        disabled="{Boolean}false"
+                        editable="{Boolean}true"
+                        fieldLabel="Spinner Time Strategy"
+                        fieldSubLabel="Small Sub-label"
+                        grow="{Boolean}true"
+                        growMax="{Decimal}100"
+                        growMin="{Decimal}50"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        hideTrigger="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        labelSeparator=""
+                        labelStyle=""
+                        name="./spinnertime"
+                        readOnly="{Boolean}false"
+                        selectOnFocus="{Boolean}false"
+                        xtype="spinner">
+                        <strategy
+                            jcr:primaryType="nt:unstructured"
+                            alternateIncrementConstant="h"
+                            alternateIncrementValue="{Decimal}7"
+                            format="h:ia"
+                            incrementConstant="mi"
+                            incrementValue="{Decimal}2"
+                            xtype="time"/>
+                    </spinnertime>
+                    <static
+                        jcr:primaryType="cq:Widget"
+                        bold="{Boolean}false"
+                        bottommargin="{Boolean}true"
+                        cls=""
+                        disabled="{Boolean}false"
+                        fieldDescription="The Static can be used to display arbitrary text or HTML."
+                        fieldLabel="Static"
+                        fieldSubLabel="Small Sub-label"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        html="&amp;copy;&amp;copy; Pack &lt;b>my box&lt;/b> with five dozen &lt;i>liquor jugs&lt;/i> &amp;copy;&amp;copy;&lt;br>&lt;br>&lt;p style=&quot;background-color:#b0c4de;padding:10px;&quot;>This is a paragraph.&lt;/p>"
+                        italic="{Boolean}false"
+                        labelSeparator=""
+                        labelStyle=""
+                        noWrap="{Boolean}false"
+                        small="{Boolean}false"
+                        target="_blank"
+                        text="This is &lt;b>text!&lt;/b>"
+                        topmargin="{Boolean}true"
+                        xtype="static"/>
+                    <tableedit2
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        boxMaxHeight="{Decimal}100"
+                        cls=""
+                        externalStyleSheets="[/etc/designs/prodigious-cq-widgets/static.css]"
+                        fieldDescription="The TableEdit2 provides a widget for creating tables."
+                        fieldLabel="Table Edit 2"
+                        fieldSubLabel="Small sub-label"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        labelSeparator=":"
+                        labelStyle=""
+                        name="./tableedit2"
+                        xtype="tableedit2">
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                            <edit
+                                jcr:primaryType="nt:unstructured"
+                                defaultPasteMode="wordhtml"
+                                features="*">
+                                <htmlPasteRules
+                                    jcr:primaryType="nt:unstructured"
+                                    allowBlockTags="[h1,h2,h3,p]"
+                                    fallbackBlockTag="p">
+                                    <allowBasics
+                                        jcr:primaryType="nt:unstructured"
+                                        anchor="{Boolean}true"
+                                        bold="{Boolean}true"
+                                        image="{Boolean}true"
+                                        italic="{Boolean}true"/>
+                                    <table
+                                        jcr:primaryType="nt:unstructured"
+                                        allow="{Boolean}false"
+                                        ignoreMode="remove"/>
+                                    <list
+                                        jcr:primaryType="nt:unstructured"
+                                        allow="{Boolean}true"/>
+                                </htmlPasteRules>
+                            </edit>
+                            <findreplace
+                                jcr:primaryType="nt:unstructured"
+                                features="[find]"/>
+                            <format
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <keys
+                                jcr:primaryType="nt:unstructured"
+                                features="*"
+                                tabSize="8"/>
+                            <justify
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <links
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <lists
+                                jcr:primaryType="nt:unstructured"
+                                features="*"
+                                indentSize="{Long}10"/>
+                            <misctools
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                    <chars jcr:primaryType="nt:unstructured">
+                                        <copyright
+                                            jcr:primaryType="nt:unstructured"
+                                            entity="©"/>
+                                        <registered
+                                            jcr:primaryType="nt:unstructured"
+                                            entity="®"/>
+                                        <trademark
+                                            jcr:primaryType="nt:unstructured"
+                                            entity="™"/>
+                                        <onehalf
+                                            jcr:primaryType="nt:unstructured"
+                                            entity="½"/>
+                                        <pencils
+                                            jcr:primaryType="nt:unstructured"
+                                            rangeEnd="{Long}10000"
+                                            rangeStart="{Long}9998"/>
+                                    </chars>
+                                </specialCharsConfig>
+                            </misctools>
+                            <paraformat
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <formats jcr:primaryType="cq:WidgetCollection">
+                                    <paragraph
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Paragraph"
+                                        tag="p"/>
+                                    <heading1
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 1"
+                                        tag="h1"/>
+                                    <heading2
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 2"
+                                        tag="h2"/>
+                                    <heading3
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 3"
+                                        tag="h3"/>
+                                    <heading4
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 4"
+                                        tag="h4"/>
+                                    <heading5
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 5"
+                                        tag="h5"/>
+                                    <heading6
+                                        jcr:primaryType="nt:unstructured"
+                                        description="Heading 6"
+                                        tag="h6"/>
+                                </formats>
+                            </paraformat>
+                            <spellcheck
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <styles
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <styles jcr:primaryType="cq:WidgetCollection">
+                                    <available
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="available"
+                                        text="Available Item"/>
+                                    <unavailable
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="unavailable"
+                                        text="Unavailable Item"/>
+                                </styles>
+                            </styles>
+                            <subsuperscript
+                                jcr:primaryType="nt:unstructured"
+                                features="*"/>
+                            <table
+                                jcr:primaryType="nt:unstructured"
+                                features="*">
+                                <tableStyles jcr:primaryType="cq:WidgetCollection">
+                                    <tablestyle
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="table-style"
+                                        text="Table Style 2"/>
+                                </tableStyles>
+                                <cellStyles jcr:primaryType="cq:WidgetCollection">
+                                    <uppercase
+                                        jcr:primaryType="nt:unstructured"
+                                        cssName="uppercase-text"
+                                        text="Uppercase"/>
+                                </cellStyles>
+                            </table>
+                            <undo
+                                jcr:primaryType="nt:unstructured"
+                                features="*"
+                                maxUndoSteps="{Long}60"/>
+                        </rtePlugins>
+                    </tableedit2>
+                    <tags
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        blankText="This should not be empty!"
+                        boxMaxWidth="{Decimal}500"
+                        cls="cq-propsdialog-tags"
+                        collapsed="{Boolean}false"
+                        collapsible="{Boolean}true"
+                        defaultLocale="en_us"
+                        disabled="{Boolean}false"
+                        displayTitles="{Boolean}true"
+                        fieldDescription="A form widget for displaying and entering CQ Tags. It has a popup menu for selecting from existing tags, includes auto-completion, allows to create tags on the fly, supports tag namespaces, tag title localization and bulk-editing."
+                        fieldLabel="Tags"
+                        fieldSubLabel="Small Sub-label"
+                        frame="{Boolean}true"
+                        header="{Boolean}true"
+                        headerAsText="{Boolean}true"
+                        hidden="{Boolean}false"
+                        hideCollapseTool="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        labelSeparator=""
+                        labelStyle=""
+                        maskDisabled="{Boolean}true"
+                        name="./tags"
+                        namespaces="[geometrixx-outdoors,marketing]"
+                        popupHeight="{Decimal}300"
+                        popupResizeHandles="sw se"
+                        popupWidth="{Decimal}500"
+                        readOnly="{Boolean}false"
+                        showPathInLabels="{Boolean}true"
+                        suggestMinChars="{Decimal}3"
+                        tagsBasePath="/etc/tags"
+                        title="Select a random tag!"
+                        titleCollapse="{Boolean}true"
+                        xtype="tags"/>
+                    <textarea
+                        jcr:primaryType="cq:Widget"
+                        emptyText="Add any comments here..."
+                        fieldDescription="Multiline text field. Can be used as a direct replacement for traditional textarea fields, plus adds support for auto-sizing."
+                        fieldLabel="Text Area"
+                        fieldSubLabel="Small Sub-label"
+                        grow="{Boolean}true"
+                        growMax="{Long}100"
+                        growMin="{Long}30"
+                        ignoreData="{Boolean}false"
+                        labelSeparator=""
+                        labelStyle=""
+                        minLength="{Decimal}10"
+                        minLengthText="Add more words"
+                        name="./textarea"
+                        preventScrollbars="{Boolean}false"
+                        regex=""
+                        regexText=""
+                        selectOnFocus="{Boolean}true"
+                        xtype="textarea"/>
+                    <textbutton
+                        jcr:primaryType="cq:Widget"
+                        cls="x-btn-text-icon"
+                        disabled="{Boolean}false"
+                        enableToggle="{Boolean}true"
+                        fieldDescription="The TextButton provides a text link with the capabilities of a CQ.Ext.Button."
+                        fieldLabel="Text Button"
+                        fieldSubLabel="Small Sub-label"
+                        handler="function(button, e) { alert('Alert! The button was clicked'); }"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        icon="/libs/foundation/components/image/icon.png"
+                        iconAlign="left"
+                        labelSeparator=""
+                        labelStyle=""
+                        scale="medium"
+                        text="Click here to display an alert..."
+                        toggleHandler="function(button, e) { alert('Alert! The button toggled: ' + button.pressed); }"
+                        tooltip="Here's the tooltip"
+                        tooltipType="qtip"
+                        xtype="textbutton"/>
+                    <textfield
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        blankText="This field cannot be empty."
+                        boxMaxWidth="{Decimal}150"
+                        boxMinWidth="{Long}50"
+                        cls=""
+                        disabled="{Boolean}false"
+                        emptyText="Text field content"
+                        fieldDescription="Basic text field. Can be used as a direct replacement for traditional text inputs, or as the base class for more sophisticated input controls (like CQ.Ext.form.TextArea and CQ.Ext.form.ComboBox)."
+                        fieldLabel="Text Field"
+                        fieldSubLabel="Small Sub-label"
+                        grow="{Boolean}true"
+                        growMax="{Long}300"
+                        growMin="{Long}150"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        labelSeparator=""
+                        labelStyle=""
+                        maxLength="{Decimal}200"
+                        maxLengthText="Way too much text!"
+                        msgTarget="under"
+                        name="./textfield"
+                        preventMark="{Boolean}false"
+                        readOnly="{Boolean}false"
+                        regex=""
+                        regexText="Invalid content!"
+                        selectOnFocus="{Boolean}false"
+                        xtype="textfield"/>
+                    <timefield
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}true"
+                        altFormats="g:ia|g:iA|g:i a|g:i A|h:i|g:i|H:i|ga|ha|gA|h a|g a|g A|gi|hi|gia|hia|g|H|gi a|hi a|giA|hiA|gi A|hi A"
+                        blankText="This is required"
+                        fieldDescription="Provides a time input field with a time dropdown and automatic time validation."
+                        fieldLabel="Time Field"
+                        fieldSubLabel="Small Sub-label"
+                        forceSelection="{Boolean}false"
+                        format="g:i A"
+                        handleHeight="{Decimal}8"
+                        hidden="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        increment="{Decimal}10"
+                        lazyInit="{Boolean}true"
+                        listEmptyText="No matching time found."
+                        maxValue="4:30 PM"
+                        minValue="7:30 AM"
+                        name="./timefield"
+                        preventMark="{Boolean}false"
+                        readOnly="{Boolean}false"
+                        regex=""
+                        regexText=""
+                        resizable="{Boolean}true"
+                        selectOnFocus="{Boolean}true"
+                        title="Please select..."
+                        xtype="timefield"/>
+                </items>
+            </demo2>
+            <custombulkeditor
+                jcr:primaryType="cq:Widget"
+                autoHeight="{Boolean}false"
+                boxMinHeight="{Decimal}200"
+                colsSelection="[ProductId,ProductName,CatalogCode,Color,SellingSku]"
+                colsValue="[ProductId,ProductName,Color,CatalogCode,SellingSku]"
+                contentMode="false"
+                exportURL="/etc/importers/bulkeditor/export.tsv"
+                extraCols="Selection"
+                height="{Decimal}200"
+                hideBulkEditButton="{Boolean}true"
+                hideColsSelection="false"
+                hideContentMode="true"
+                hideDeleteButton="false"
+                hideExportButton="false"
+                hideExtraCols="true"
+                hideImportButton="false"
+                hideInsertButton="false"
+                hideMoveButtons="false"
+                hidePathCol="true"
+                hideRootPath="false"
+                hideSaveButton="false"
+                hideSearchButton="false"
+                importURL="/etc/importers/bulkeditor/import"
+                initialSearch="true"
+                insertedResourceType="geometrixx/components/productlist/sku"
+                queryParams=""
+                queryURL="/etc/importers/bulkeditor/query.json"
+                rootPath="/content/geometrixx/en/products/jcr:content/par/productlist"
+                rowNumberer="{Boolean}true"
+                saveURL="/bin/custom/bulkservlet"
+                title="Custom Bulk Editor"
+                xtype="custombulkeditor">
+                <saveButton
+                    jcr:primaryType="nt:unstructured"
+                    text="Save modifications"/>
+                <searchButton
+                    jcr:primaryType="nt:unstructured"
+                    text="Filter"/>
+                <queryParamsInput
+                    jcr:primaryType="nt:unstructured"
+                    fieldDescription="Enter here your filters"
+                    fieldLabel="Filters"/>
+                <searchPanel
+                    jcr:primaryType="nt:unstructured"
+                    height="200">
+                    <defaults
+                        jcr:primaryType="nt:unstructured"
+                        labelWidth="150"/>
+                </searchPanel>
+                <grid
+                    jcr:primaryType="nt:unstructured"
+                    height="275"/>
+                <store jcr:primaryType="nt:unstructured">
+                    <sortInfo
+                        jcr:primaryType="nt:unstructured"
+                        direction="ASC"
+                        field="CatalogCode"/>
+                </store>
+                <colModel
+                    jcr:primaryType="nt:unstructured"
+                    width="150"/>
+                <colsMetadata jcr:primaryType="nt:unstructured">
+                    <Selection
+                        jcr:primaryType="nt:unstructured"
+                        checkbox="true"
+                        forcedPosition="0"
+                        headerText=""/>
+                    <ProductId
+                        jcr:primaryType="nt:unstructured"
+                        cellCls="productlist-cell-productid"
+                        headerText="Product Id"/>
+                    <ProductName
+                        jcr:primaryType="nt:unstructured"
+                        cellStyle="background-color: #FFCC99;"
+                        headerText="Product Name"/>
+                    <CatalogCode
+                        jcr:primaryType="nt:unstructured"
+                        cellStyle="background-color: #EDEDED;"
+                        headerText="Catalog Code"/>
+                    <Color jcr:primaryType="nt:unstructured">
+                        <editor
+                            jcr:primaryType="nt:unstructured"
+                            store="[Blue,Red,Yellow]"
+                            triggerAction="all"
+                            typeAhead="true"
+                            xtype="combo"/>
+                    </Color>
+                    <SellingSku
+                        jcr:primaryType="nt:unstructured"
+                        headerText="Sku Id"/>
+                </colsMetadata>
+            </custombulkeditor>
+            <slides
+                jcr:primaryType="cq:Widget"
+                allowBlank="{Boolean}true"
+                allowFileNameEditing="{Boolean}true"
+                allowFileReference="{Boolean}true"
+                allowUpload="{Boolean}false"
+                blankText="Required!"
+                ddGroups="[media]"
+                disabled="{Boolean}false"
+                disableInfo="{Boolean}false"
+                disableZoom="{Boolean}false"
+                fieldDescription="This is the description"
+                fileReferencePrefix="./image$"
+                title="Slides"
+                xtype="slideshow"/>
+            <imagewidgets
+                jcr:primaryType="cq:Panel"
+                title="Image Widgets">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <firstimage
+                        jcr:primaryType="cq:Widget"
+                        cropParameter="./firstimage/imageCrop"
+                        ddGroups="[media]"
+                        fieldDescription="The SmartImage is an intelligent image uploader. It provides tools to process an uploaded image, for example a tool to define image maps and an image cropper.&#xa;&lt;br>&#xa;Note that the component is mainly designed for use on a separate dialog tab. You may use the component inside a CQ.Ext.layout.FormLayout optionally if you provide a suitable height setting."
+                        fieldLabel="Image 1"
+                        fieldSubLabel="Small Sub-label"
+                        fileNameParameter="./firstimage/fileName"
+                        fileReferenceParameter="./firstimage/fileReference"
+                        height="{Long}200"
+                        mapParameter="./firstimage/imageMap"
+                        name="./firstimage/file"
+                        requestSuffix=".firstimage.img.png"
+                        rotateParameter="./firstimage/imageRotate"
+                        uploadText="Drop an image or click to upload"
+                        width="{Long}200"
+                        xtype="html5smartimage"/>
+                    <secondimage
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="{Boolean}false"
+                        allowFileReference="{Boolean}true"
+                        allowUpload="{Boolean}false"
+                        blankText="Please drop an image here!"
+                        border="{Boolean}true"
+                        boxMaxWidth="{Decimal}600"
+                        boxMinWidth="{Decimal}300"
+                        cls=""
+                        collapsed="{Boolean}false"
+                        collapseFirst="{Boolean}true"
+                        collapsible="{Boolean}true"
+                        cropParameter="./secondimage/imageCrop"
+                        ddAccept="[image/png]"
+                        ddGroups="[media]"
+                        disabled="{Boolean}false"
+                        disableFlush="{Boolean}false"
+                        disableInfo="{Boolean}false"
+                        disableZoom="{Boolean}false"
+                        fieldLabel="Image 2"
+                        fieldSubLabel="Small Sub-label"
+                        fileReferenceParameter="./secondimage/fileReference"
+                        frame="{Boolean}true"
+                        header="{Boolean}true"
+                        headerAsText="{Boolean}true"
+                        height="{Long}300"
+                        hidden="{Boolean}false"
+                        hideCollapseTool="{Boolean}false"
+                        hideLabel="{Boolean}false"
+                        hideMainToolbar="{Boolean}false"
+                        ignoreData="{Boolean}false"
+                        labelSeparator=""
+                        labelStyle=""
+                        mapParameter="./secondimage/imageMap"
+                        mimeTypes="*.png"
+                        mimeTypesDescription="Only PNG files are allowed"
+                        name="./secondimage/file"
+                        readOnly="{Boolean}false"
+                        rotateParameter="./secondimage/imageRotate"
+                        sizeLimit="{Decimal}1"
+                        title="Drop an image from the Content Finder..."
+                        titleCollapse="{Boolean}true"
+                        transferFileName="{Boolean}false"
+                        uploadText="Drop an image or click to upload"
+                        uploadTextReference="Drop an image"
+                        uploadTextUpload="Click to upload"
+                        useHTML5="{Boolean}true"
+                        width="{Long}200"
+                        xtype="html5smartimage"/>
+                </items>
+            </imagewidgets>
+            <imagetab
+                jcr:primaryType="cq:Widget"
+                allowBlank="{Boolean}true"
+                allowFileReference="{Boolean}true"
+                allowUpload="{Boolean}true"
+                blankText="Please drop an image here!"
+                closable="{Boolean}true"
+                cls=""
+                collapsed="{Boolean}false"
+                collapseFirst="{Boolean}true"
+                collapsible="{Boolean}true"
+                cropParameter="./tabimage/imageCrop"
+                ddAccept="image/jpeg;image/png"
+                ddGroups="[media]"
+                disabled="{Boolean}false"
+                disableFlush="{Boolean}false"
+                disableInfo="{Boolean}false"
+                disableZoom="{Boolean}false"
+                fileNameParameter="./tabimage/fileName"
+                fileReferenceParameter="./tabimage/fileReference"
+                header="{Boolean}true"
+                headerAsText="{Boolean}true"
+                hidden="{Boolean}false"
+                hideCollapseTool="{Boolean}false"
+                hideMainToolbar="{Boolean}false"
+                ignoreData="{Boolean}false"
+                mapParameter="./tabimage/imageMap"
+                mimeTypes="*.png;*.jpg"
+                mimeTypesDescription="Only PNG and JPEG files are allowed."
+                name="./tabimage/file"
+                readOnly="{Boolean}false"
+                rotateParameter="./tabimage/imageRotate"
+                title="Image Tab"
+                titleCollapse="{Boolean}true"
+                transferFileName="{Boolean}false"
+                uploadText="Drop an image or click to upload"
+                uploadTextReference="Drop an image"
+                uploadTextUpload="Click to upload"
+                useHTML5="{Boolean}true"
+                xtype="html5smartimage"/>
+        </items>
+    </items>
+</jcr:root>
