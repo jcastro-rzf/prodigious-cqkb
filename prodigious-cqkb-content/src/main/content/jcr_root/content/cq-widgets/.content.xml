@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/prodigious-cqkb"
+        cq:lastModified="{Date}2014-04-15T09:40:24.780-06:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/apps/prodigious-cqkb/templates/default"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="CQ Widgets"
+        sling:resourceType="prodigious-cqkb/components/page/default">
+        <components
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <dynamictabs
+                jcr:created="{Date}2013-11-08T16:19:12.190-06:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-11-11T10:26:10.819-06:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="prodigious-cqkb/components/content/dynamictabs"
+                dummy-param1="/content/cq-widgets"
+                dummy-param2="This is my new parameter!"
+                dummy-param3="Add as many parameters as you want."
+                selection="tab1"/>
+            <togglefields
+                jcr:created="{Date}2013-10-15T13:15:28.000-06:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-10-15T13:15:28.000-06:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="prodigious-cqkb/components/content/togglefields"/>
+            <toggletabs
+                jcr:created="{Date}2013-10-02T11:29:19.325-06:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-10-02T15:53:48.508-06:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="prodigious-cqkb/components/content/toggletabs"/>
+            <xtypesdemo
+                jcr:created="{Date}2013-10-22T13:40:16.677-06:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-11-11T10:15:04.088-06:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="prodigious-cqkb/components/content/xtypesdemo"
+                clearcombo="/etc/workflow/models/activation-workflow/jcr:content/model"
+                colorfield="993300"
+                datefield="10/23/13"
+                datetime="{Date}2013-10-29T08:50:00.000-06:00"
+                dummy-param="You can add any property to the node that will be created by the drag-and-drop."
+                htmleditor="&lt;font size=&quot;2&quot;>&lt;font face=&quot;arial&quot;>Valuable 1&lt;/font>&lt;br>&lt;font face=&quot;courier new&quot;>​Valuable 1&lt;/font>&lt;br>&lt;font face=&quot;tahoma&quot;>​Valuable 1&lt;/font>&lt;br>&lt;font face=&quot;times new roman&quot;>​Valuable 1&lt;/font>&lt;br>&lt;font face=&quot;verdana&quot;>​Valuable 1&lt;/font>&lt;br>&lt;font face=&quot;comic sans ms&quot;>​Valuable 1&lt;/font>&lt;br>&lt;font face=&quot;impact&quot;>​Valuable 1&lt;/font>&lt;br>&lt;span style=&quot;font-family: 'lucida console';&quot;>​Valuable 1&lt;/span>&lt;/font>"
+                numberfield="1"
+                paddingbottom="true"
+                password="abc1"
+                pathfield="/bin2"
+                richtext="&lt;h1>Heading 1: Blue color is no saved in content&lt;/h1>&#xa;&lt;p>This is the list (red color will not be saved in content either):&lt;/p>&#xa;&lt;ol>&#xa;&lt;li>&lt;span class=&quot;available&quot;>First item.&lt;/span>&lt;/li>&#xa;&lt;li>Second item.&lt;/li>&#xa;&lt;li>Third item.&lt;/li>&#xa;&lt;li>&lt;span class=&quot;unavailable&quot;>Fourth item.&lt;/span>&lt;/li>&#xa;&lt;li>Fifth item.&lt;/li>&#xa;&lt;/ol>&#xa;&lt;p>And that's it!&lt;/p>&#xa;&lt;p>The &lt;a target=&quot;_blank&quot; class=&quot;external-link&quot; href=&quot;https://code.google.com/apis/console&quot;>Google APIs Console&lt;/a>.&lt;/p>&#xa;&lt;ul>&#xa;&lt;li>&lt;a href=&quot;/content/geometrixx/en/toolbar/newsletter.html&quot; class=&quot;internal-link&quot; target=&quot;_self&quot;>Newsletter&lt;/a>&lt;/li>&#xa;&lt;li>&lt;a href=&quot;/content/geometrixx/en/toolbar/search.html&quot; class=&quot;internal-link&quot; target=&quot;_self&quot;>Search&lt;/a>&lt;/li>&#xa;&lt;/ul>&#xa;&lt;p>The end...&lt;/p>&#xa;&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;1&quot; border=&quot;1&quot; class=&quot;table-style&quot;>&#xa;&lt;tbody>&lt;tr>&lt;td>Header 1&lt;/td>&#xa;&lt;td class=&quot;uppercase-text&quot;>Header 2&lt;/td>&#xa;&lt;td>Header 3&lt;/td>&#xa;&lt;/tr>&lt;tr>&lt;td>Content of the first cell.&lt;/td>&#xa;&lt;td>This is more text.&lt;/td>&#xa;&lt;td>Nothing left to say, just go!&lt;/td>&#xa;&lt;/tr>&lt;/tbody>&lt;/table>&#xa;"
+                rootPath="/content/geometrixx/en/products/jcr:content/par/productlist"
+                selection-select="2"
+                spinnernumber="1239"
+                tags="[geometrixx-outdoors:activity,geometrixx-outdoors:activity/biking,geometrixx-outdoors:apparel]"
+                textarea="This is just some random text."
+                textfield="Field"
+                timefield="4:30 AM">
+                <image1
+                    jcr:primaryType="nt:unstructured"
+                    fileReference="/content/dam/geometrixx/portraits/alison_parker.jpg"/>
+                <image2
+                    jcr:primaryType="nt:unstructured"
+                    fileReference="/content/dam/geometrixx/portraits/janet_doe.jpg"/>
+                <image3
+                    jcr:primaryType="nt:unstructured"
+                    fileReference="/content/dam/geometrixx/portraits/larry_spiller.jpg"/>
+                <image4 jcr:primaryType="nt:unstructured"/>
+                <firstimage
+                    jcr:lastModified="{Date}2013-11-11T10:12:21.455-06:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    imageRotate="0"/>
+                <secondimage
+                    jcr:lastModified="{Date}2013-11-11T10:12:21.455-06:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    fileReference="/content/dam/geometrixx-outdoors/logo.png"
+                    imageRotate="0"/>
+            </xtypesdemo>
+            <simpletext
+                jcr:created="{Date}2013-11-11T11:21:21.259-06:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-11-11T11:55:44.645-06:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="prodigious-cqkb/components/content/simpletext"
+                text="&lt;p>This text was added using in-line editing in Firefox!!&lt;/p>&#xa;"
+                textIsRich="true"/>
+            <extendedxtypes
+                jcr:created="{Date}2013-11-12T09:53:02.068-06:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2013-11-12T11:53:24.056-06:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="prodigious-cqkb/components/content/extendedxtypes"
+                extendedrichtext="&lt;p>This is some content&lt;/p>&#xa;&lt;p>here too.&lt;/p>&#xa;&lt;p>yeah yeah&lt;/p>&#xa;&lt;p>hey&lt;/p>&#xa;&lt;p>&lt;/p>&#xa;">
+                <restrictedimage
+                    jcr:lastModified="{Date}2013-11-12T11:53:24.056-06:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    imageRotate="0"/>
+            </extendedxtypes>
+        </components>
+        <image
+            jcr:lastModified="{Date}2014-04-15T09:40:24.772-06:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            imageRotate="0"/>
+    </jcr:content>
+    <content-template
+        jcr:primaryType="nt:unstructured"
+        text="Value pulled from path to /content-template. Otherwise, use the cq:template node under this component"/>
+</jcr:root>
