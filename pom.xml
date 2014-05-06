@@ -25,7 +25,7 @@
         <cq.host>localhost</cq.host>
         <cq.port>4502</cq.port>
         <cq.user>admin</cq.user>
-        <cq.password>admin</cq.password>
+        <cq.password>f!r3st0n3</cq.password>
     </properties>
 
     <scm>
